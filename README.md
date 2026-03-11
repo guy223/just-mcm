@@ -9,13 +9,22 @@
 git clone <repository-url> ~/just
 
 # just 설치 (없는 경우)
+# macOS
 brew install just
-# 또는
+
+# Linux (apt)
+sudo apt-get install just
+
+# 또는 Cargo로 설치
 cargo install just
 
-# alias 설정
+# alias 설정 (zsh)
 echo 'alias j="just --justfile ~/just/justfile"' >> ~/.zshrc
 source ~/.zshrc
+
+# alias 설정 (bash)
+echo 'alias j="just --justfile ~/just/justfile"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ## 사용법
