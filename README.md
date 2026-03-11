@@ -8,14 +8,11 @@
 # 저장소 클론 (~/just 폴더로 고정)
 git clone <repository-url> ~/just
 
-# just 설치 (없는 경우)
+# just 설치 (1.27.0 이상 필요 - 그룹별 목록 표시 지원)
 # macOS
 brew install just
 
-# Linux (apt)
-sudo apt-get install just
-
-# 또는 Cargo로 설치
+# Linux / 최신 버전 (권장)
 cargo install just
 
 # alias 설정 (zsh)
@@ -36,14 +33,15 @@ j --list
 
 ## 명령 구조
 
-### 클러스터 모니터링
+### 클러스터 관리
 
 ```bash
 j current      # 현재 kubectl context 확인
 j pods         # ClickHouse pod 상태 watch
 j event        # clickhouse 네임스페이스 이벤트 watch
 j chi-edit     # clickhouse-operator deployment 편집
-j chi-backup spc-ap  # CHI 백업 (~/temp/chi-backup-MMDD-spc-ap.yaml)
+j chi-backup   # CHI 백업 (~/temp/chi-backup-MMDD-<현재context>.yaml)
+j del-pod 0 1  # shard 0, replica 1 pod 삭제
 ```
 
 ### kubectl context 전환
@@ -75,7 +73,6 @@ j ch 1 1       # shard 1, replica 1 bash
 j backup 0 0   # shard 0, replica 0 backup 컨테이너
 j zoo          # Zookeeper 0번 노드 bash (기본값)
 j zoo 2        # Zookeeper 2번 노드 bash (0-4)
-j del-pod 0 1  # shard 0, replica 1 pod 삭제
 ```
 
 ### MySQL CLI
