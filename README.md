@@ -5,6 +5,9 @@
 ## 설치
 
 ```bash
+# 저장소 클론 (~/just 폴더로 고정)
+git clone <repository-url> ~/just
+
 # just 설치 (없는 경우)
 brew install just
 # 또는
@@ -59,14 +62,24 @@ j pods         # ClickHouse pod 상태 watch
 ### MySQL CLI
 
 ```bash
-j mysql dev     # dev signoz_meta
-j mysql stg     # staging signoz_meta
-j mysql ap      # AP prod signoz_meta
-j mysql us      # US prod signoz_meta
-j mysql eu      # EU prod signoz_meta
+# SPC 환경
+j mysql dev         # dev signoz_meta
+j mysql stg         # staging signoz_meta
+j mysql spc-ap      # SPC AP prod signoz_meta
+j mysql spc-us      # SPC US prod signoz_meta
+j mysql spc-eu      # SPC EU prod signoz_meta
 
-j mysql dev batch   # dev batch DB
-j mysql ap batch    # AP prod batch DB (batch 계정 사용)
+# AWS 환경
+j mysql aws-apse1   # AWS AP-Southeast-1 signoz_meta
+j mysql aws-use2    # AWS US-East-2 signoz_meta
+j mysql aws-euw1    # AWS EU-West-1 signoz_meta
+
+# batch DB (모든 환경 가능, batch 계정 사용)
+j mysql spc-ap batch
+j mysql aws-apse1 batch
+
+# dev 환경에서 mysql pod 없을 때 임시 pod 생성
+j mysql-run
 ```
 
 ## 파일 구조

@@ -46,10 +46,11 @@
 | recipe | 설명 |
 |--------|------|
 | `mysql <env> [db]` | MySQL CLI 접속 |
+| `mysql-run` | dev 환경에서 mysql pod 없을 때 임시 pod 생성 후 접속 (dev 전용) |
 
-- env: `dev` \| `stg` \| `ap` \| `us` \| `eu`
+- env: `dev` \| `stg` \| `spc-ap` \| `spc-us` \| `spc-eu` \| `aws-apse1` \| `aws-use2` \| `aws-euw1`
 - db: `signoz_meta` (기본값) \| `batch`
-- `ap` + `batch` 조합은 `batch` 계정 사용, 나머지는 `mcm` 계정
+- `db=batch`이면 모든 환경에서 `batch` 계정 사용, 그 외는 `mcm` 계정
 
 ## 개발 규칙
 
