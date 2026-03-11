@@ -1,3 +1,7 @@
+# 현재 kubectl context 확인
+current:
+    kubectl config current-context
+
 # ── Dev ──────────────────────────────────────────────────────────────────────
 
 # Dev DB 클러스터 (AP-SE1)

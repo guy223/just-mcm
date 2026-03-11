@@ -22,6 +22,7 @@
 
 | recipe | context 이름 |
 |--------|-------------|
+| current | 현재 context 확인 |
 | dev | aws-niffler2-dev-apse1-db-cluster |
 | sd | aws-niffler2-dev-apse1-sandbox-cluster |
 | stg | niffler2-stg-apse1-db-cluster |
@@ -40,6 +41,10 @@
 | `backup <shard> <replica>` | clickhouse-backup 컨테이너 bash |
 | `zoo [node]` | Zookeeper bash (node 0-4, 기본값 0) |
 | `pods` | ClickHouse pod 상태 watch |
+| `event` | clickhouse 네임스페이스 이벤트 watch |
+| `chi-edit` | clickhouse-operator deployment 편집 |
+| `chi-backup <region>` | CHI YAML 백업 (~/temp/chi-backup-MMDD-<region>.yaml) |
+| `del-pod <shard> <replica>` | ClickHouse pod 삭제 (shard 0-9, replica 0-1) |
 
 ### 3. MySQL CLI (`mysql.just`)
 

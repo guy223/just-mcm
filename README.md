@@ -36,6 +36,16 @@ j --list
 
 ## 명령 구조
 
+### 클러스터 모니터링
+
+```bash
+j current      # 현재 kubectl context 확인
+j pods         # ClickHouse pod 상태 watch
+j event        # clickhouse 네임스페이스 이벤트 watch
+j chi-edit     # clickhouse-operator deployment 편집
+j chi-backup spc-ap  # CHI 백업 (~/temp/chi-backup-MMDD-spc-ap.yaml)
+```
+
 ### kubectl context 전환
 
 ```bash
@@ -65,7 +75,7 @@ j ch 1 1       # shard 1, replica 1 bash
 j backup 0 0   # shard 0, replica 0 backup 컨테이너
 j zoo          # Zookeeper 0번 노드 bash (기본값)
 j zoo 2        # Zookeeper 2번 노드 bash (0-4)
-j pods         # ClickHouse pod 상태 watch
+j del-pod 0 1  # shard 0, replica 1 pod 삭제
 ```
 
 ### MySQL CLI
