@@ -29,9 +29,14 @@ event:
 		sleep 2; \
 	done
 
-# clickhouse-operator deployment 편집
+# clickhouse-installation 편집
 [group('클러스터 관리')]
 chi-edit:
+    kubectl edit chi signoz-clickhouse -n clickhouse
+
+# clickhouse-operator deployment 편집
+[group('클러스터 관리')]
+cho-edit:
     kubectl edit deployment signoz-clickhouse-operator -n clickhouse
 
 # ClickHouse pod 삭제 (shard: 0-9, replica: 0-1)
