@@ -24,7 +24,10 @@ pods:
 # clickhouse 네임스페이스 이벤트 watch
 [group('클러스터 관리')]
 event:
-    kubectl events -n clickhouse -w
+	while true; do \
+		kubectl get events -n clickhouse --sort-by='.lastTimestamp' --watch --request-timeout=0; \
+		sleep 2; \
+	done
 
 # clickhouse-operator deployment 편집
 [group('클러스터 관리')]
