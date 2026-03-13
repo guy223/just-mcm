@@ -39,7 +39,8 @@ j --list
 j current      # 현재 kubectl context 확인
 j pods         # ClickHouse pod 상태 watch
 j event        # clickhouse 네임스페이스 이벤트 watch
-j chi-edit     # clickhouse-operator deployment 편집
+j chi-edit     # clickhouse-installation(CHI) 편집
+j cho-edit     # clickhouse-operator deployment 편집
 j chi-backup   # CHI 백업 (~/temp/chi-backup-MMDD-<현재context>.yaml)
 j del-pod 0 1  # shard 0, replica 1 pod 삭제
 ```
