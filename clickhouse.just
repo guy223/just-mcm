@@ -29,7 +29,7 @@ event:
 		sleep 2; \
 	done
 
-# clickhouse-installation 편집
+# clickhouse-installation(CHI) 편집
 [group('클러스터 관리')]
 chi-edit:
     kubectl edit chi signoz-clickhouse -n clickhouse
@@ -38,6 +38,17 @@ chi-edit:
 [group('클러스터 관리')]
 cho-edit:
     kubectl edit deployment signoz-clickhouse-operator -n clickhouse
+
+# clickhouse-operator 로그 조회
+[group('클러스터 관리')]
+cho-log:
+    kubectl logs -n clickhouse -f deployment/signoz-clickhouse-operator
+
+# ClickHouse pod 서버 로그 조회 (shard: 0-9, replica: 0-1)
+# 사용 예: just log 0 0
+[group('클러스터 관리')]
+log shard replica:
+    kubectl logs -n clickhouse -f chi-signoz-clickhouse-cluster-{{shard}}-{{replica}}-0 -c clickhouse
 
 # ClickHouse pod 삭제 (shard: 0-9, replica: 0-1)
 # 사용 예: just del-pod 0 1

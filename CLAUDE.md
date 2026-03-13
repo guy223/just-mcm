@@ -44,6 +44,8 @@
 | `event` | clickhouse 네임스페이스 이벤트 watch |
 | `chi-edit` | clickhouse-installation(CHI) 편집 |
 | `cho-edit` | clickhouse-operator deployment 편집 |
+| `cho-log` | clickhouse-operator 로그 조회 (실시간) |
+| `log <shard> <replica>` | ClickHouse pod 서버 로그 조회 (shard 0-9, replica 0-1) |
 | `chi-backup` | CHI YAML 백업 (~/temp/chi-backup-MMDD-<현재context>.yaml, region 자동 추출) |
 | `del-pod <shard> <replica>` | ClickHouse pod 삭제 (shard 0-9, replica 0-1) |
 
