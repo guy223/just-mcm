@@ -16,9 +16,14 @@ backup shard replica:
 zoo node="0":
     kubectl exec -it -n clickhouse signoz-zookeeper-{{node}} -- /bin/bash
 
-# ClickHouse pod 상태 watch
+# ClickHouse pod 상태 조회
 [group('클러스터 관리')]
 pods:
+    kubectl get pod -o wide -n clickhouse
+
+# ClickHouse pod 상태 watch
+[group('클러스터 관리')]
+getpods:
     watch -n 1 kubectl get pod -o wide -n clickhouse
 
 # clickhouse 네임스페이스 이벤트 watch

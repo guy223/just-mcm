@@ -40,7 +40,8 @@
 | `ch <shard> <replica>` | ClickHouse pod bash (shard 0-9, replica 0-1) |
 | `backup <shard> <replica>` | clickhouse-backup 컨테이너 bash |
 | `zoo [node]` | Zookeeper bash (node 0-4, 기본값 0) |
-| `pods` | ClickHouse pod 상태 watch |
+| `pods` | ClickHouse pod 상태 조회 (1회) |
+| `getpods` | ClickHouse pod 상태 watch (실시간) |
 | `event` | clickhouse 네임스페이스 이벤트 watch |
 | `chi-edit` | clickhouse-installation(CHI) 편집 |
 | `cho-edit` | clickhouse-operator deployment 편집 |

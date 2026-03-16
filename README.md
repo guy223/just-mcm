@@ -37,7 +37,8 @@ j --list
 
 ```bash
 j current      # 현재 kubectl context 확인
-j pods         # ClickHouse pod 상태 watch
+j pods         # ClickHouse pod 상태 조회 (1회)
+j getpods      # ClickHouse pod 상태 watch (실시간)
 j event        # clickhouse 네임스페이스 이벤트 watch
 j chi-edit     # clickhouse-installation(CHI) 편집
 j cho-edit     # clickhouse-operator deployment 편집
