@@ -81,6 +81,6 @@ chi-backup:
       *) echo "알 수 없는 context: ${context}"; exit 1 ;;
     esac
     mkdir -p ~/temp
-    filename=~/temp/chi-backup-$(date +%m%d)-${region}.yaml
+    filename=~/temp/chi-backup-$(date +%m%d-%H%M)-${region}.yaml
     kubectl get chi signoz-clickhouse -n clickhouse -o yaml > "${filename}"
     echo "저장: ${filename}"
