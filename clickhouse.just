@@ -30,7 +30,7 @@ getpods:
 [group('클러스터 관리')]
 event:
 	while true; do \
-		kubectl get events -n clickhouse --sort-by='.lastTimestamp' --watch --request-timeout=0; \
+		kubectl get events -n clickhouse --watch-only --request-timeout=0; \
 		sleep 2; \
 	done
 
