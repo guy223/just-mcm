@@ -1,3 +1,5 @@
+set dotenv-load := true
+
 import 'contexts.just'
 import 'clickhouse.just'
 import 'mysql.just'

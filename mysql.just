@@ -27,11 +27,11 @@ mysql env db="signoz_meta":
       user="mcm"
     fi
 
-    kubectl exec -it mysql -- mysql -h"${host}" -P13306 -u"${user}" -p"Zmffhdlt#2024" "{{db}}"
+    kubectl exec -it mysql -- mysql -h"${host}" -P13306 -u"${user}" -p"${MYSQL_PASSWORD}" "{{db}}"
 
 # Dev 환경에서 MySQL pod 없을 때 임시 pod 생성 후 signoz_meta 접속 (dev 전용)
 # 사용 예: just mysql-run
 [group('MySQL CLI')]
 mysql-run:
     kubectl run --image mysql --env LC_ALL=C.UTF-8 mysql -it -- \
-      /bin/bash -c "mysql -hsignoz-meta.ca1qbb5llq77.ap-southeast-1.rds.amazonaws.com -P13306 signoz_meta -umcm -pZmffhdlt#2024"
+      /bin/bash -c "mysql -hsignoz-meta.ca1qbb5llq77.ap-southeast-1.rds.amazonaws.com -P13306 signoz_meta -umcm -p${MYSQL_PASSWORD}"
