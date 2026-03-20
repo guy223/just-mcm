@@ -1,6 +1,7 @@
-# just-aliases
+# just-mcm
 
-`~/.zshrc`의 kubectl alias들을 `just` 명령으로 통합 관리합니다.
+ClickHouse, MySQL, kubectl context 전환 등 자주 쓰는 클러스터 관리 명령을 `just`로 통합합니다.
+`~/.zshrc`, `~/.bashrc`에 흩어진 alias 대신 모듈화된 justfile로 관리하며, `j <명령>` 형태로 간결하게 실행합니다.
 
 ## 설치
 
