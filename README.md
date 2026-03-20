@@ -6,7 +6,10 @@
 
 ```bash
 # 저장소 클론 (~/just 폴더로 고정)
+# SSH
 git clone git@github.com:guy223/just-mcm.git ~/just
+# HTTPS
+git clone https://github.com/guy223/just-mcm.git ~/just
 
 # just 설치 (1.27.0 이상 필요 - 그룹별 목록 표시 지원)
 # macOS
