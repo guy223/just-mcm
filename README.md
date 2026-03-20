@@ -15,7 +15,7 @@ git clone https://github.com/guy223/just-mcm.git ~/just
 # macOS
 brew install just
 
-# Linux / 최신 버전 (권장)
+# Linux / 최신 버전 (권장) - cargo 1.70 이상 필요
 cargo install just
 
 # alias 설정 (zsh)
