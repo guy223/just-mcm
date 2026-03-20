@@ -102,6 +102,24 @@ j mysql aws-apse1 batch
 j mysql-run
 ```
 
+## 환경 변수 설정
+
+민감한 접속 정보는 `.env` 파일에 저장합니다. `.env`는 `.gitignore`에 포함되어 있어 git에 커밋되지 않습니다.
+
+```bash
+# .env.example을 복사하여 .env 생성 후 값 입력
+cp .env.example .env
+```
+
+```bash
+# .env 파일 내용 예시
+MYSQL_PASSWORD=your_password_here
+```
+
+| 변수 | 설명 |
+|------|------|
+| `MYSQL_PASSWORD` | MySQL 접속 비밀번호 |
+
 ## 파일 구조
 
 | 파일 | 설명 |
@@ -110,3 +128,5 @@ j mysql-run
 | `contexts.just` | kubectl context 전환 recipes |
 | `clickhouse.just` | ClickHouse/Zookeeper pod exec recipes |
 | `mysql.just` | MySQL CLI recipes |
+| `.env` | 민감 정보 (gitignore, 직접 생성 필요) |
+| `.env.example` | 환경 변수 목록 안내 |
