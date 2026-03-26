@@ -29,9 +29,20 @@ mysql env db="signoz_meta":
 
     kubectl exec -it mysql -- mysql -h"${host}" -P13306 -u"${user}" -p"${MYSQL_PASSWORD}" "{{db}}"
 
-# Dev 환경에서 MySQL pod 없을 때 임시 pod 생성 후 signoz_meta 접속 (dev 전용)
-# 사용 예: just mysql-run
+# MySQL pod 없을 때 임시 pod 생성 후 signoz_meta 접속
+# 사용 예: just mysql-run       (dev 환경)
+#          just mysql-run aws-apse1
+#          just mysql-run aws-use2
+#          just mysql-run aws-euw1
 [group('MySQL CLI')]
-mysql-run:
+mysql-run env="dev":
+    #!/usr/bin/env bash
+    case "{{env}}" in
+      dev)       host="signoz-meta.ca1qbb5llq77.ap-southeast-1.rds.amazonaws.com" ;;
+      aws-apse1) host="signoz-meta.ccssy2wae8ic.ap-southeast-1.rds.amazonaws.com" ;;
+      aws-use2)  host="signoz-meta.cudecw6mumif.us-east-2.rds.amazonaws.com" ;;
+      aws-euw1)  host="signoz-meta.cz4gvfysvog0.eu-west-1.rds.amazonaws.com" ;;
+      *)   echo "지원하지 않는 환경: {{env}}  (dev | aws-apse1 | aws-use2 | aws-euw1)"; exit 1 ;;
+    esac
     kubectl run --image mysql --env LC_ALL=C.UTF-8 mysql -it -- \
-      /bin/bash -c "mysql -hsignoz-meta.ca1qbb5llq77.ap-southeast-1.rds.amazonaws.com -P13306 signoz_meta -umcm -p${MYSQL_PASSWORD}"
+      /bin/bash -c "mysql -h${host} -P13306 signoz_meta -umcm -p${MYSQL_PASSWORD}"
