@@ -24,11 +24,13 @@ pods:
 # ClickHouse pod 상태 watch
 [group('클러스터 관리')]
 getpods:
+    printf '\033]0;getpods\007'
     watch -n 1 kubectl get pod -o wide -n clickhouse
 
 # clickhouse 네임스페이스 이벤트 watch
 [group('클러스터 관리')]
 event:
+	printf '\033]0;event\007'
 	while true; do \
 		kubectl get events -n clickhouse --watch-only --request-timeout=0; \
 		sleep 2; \
@@ -47,12 +49,14 @@ cho-edit:
 # clickhouse-operator 로그 조회
 [group('클러스터 관리')]
 cho-log:
+    printf '\033]0;cho-log\007'
     kubectl logs -n clickhouse -f deployment/signoz-clickhouse-operator
 
 # ClickHouse pod 서버 로그 조회 (shard: 0-9, replica: 0-1)
 # 사용 예: just log 0 0
 [group('클러스터 관리')]
 log shard replica:
+    printf '\033]0;log {{shard}}-{{replica}}\007'
     kubectl logs -n clickhouse -f chi-signoz-clickhouse-cluster-{{shard}}-{{replica}}-0 -c clickhouse
 
 # ClickHouse pod 삭제 (shard: 0-9, replica: 0-1)
