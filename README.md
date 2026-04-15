@@ -17,6 +17,8 @@ git clone https://github.com/guy223/just-mcm.git ~/just
 brew install just
 
 # Linux / 최신 버전 (권장) - cargo 1.70 이상 필요
+# cc (C 컴파일러) 없으면 build-essential 먼저 설치
+command -v cc &>/dev/null || sudo apt-get install -y build-essential
 cargo install just
 
 # alias 설정 (zsh)
