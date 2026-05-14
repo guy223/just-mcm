@@ -51,6 +51,11 @@ aws-apse1:
 aws-euw1:
     kubectl config use-context aws-niffler2-prod-euw1-db-cluster
 
+# AWS Prod DB 클러스터 (US-E1)
+[group('context 전환')]
+aws-use1:
+    kubectl config use-context aws-niffler2-prod-use1-db-cluster
+
 # AWS Prod DB 클러스터 (US-E2)
 [group('context 전환')]
 aws-use2:

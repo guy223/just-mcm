@@ -72,6 +72,7 @@ j spc-eu       # niffler2-prod-euc1-db-cluster
 # Production - AWS
 j aws-apse1    # aws-niffler2-prod-apse1-db-cluster
 j aws-euw1     # aws-niffler2-prod-euw1-db-cluster
+j aws-use1     # aws-niffler2-prod-use1-db-cluster
 j aws-use2     # aws-niffler2-prod-use2-db-cluster
 ```
 
