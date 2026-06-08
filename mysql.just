@@ -1,5 +1,5 @@
 # MySQL CLI 접속
-# env: dev | stg | spc-ap | spc-us | spc-eu | aws-apse1 | aws-use2 | aws-euw1
+# env: dev | stg | spc-ap | spc-us | spc-eu | aws-apse1 | aws-use1 | aws-use2 | aws-euw1
 # db:  signoz_meta (기본값) | batch
 # 사용 예: just mysql spc-ap
 #          just mysql spc-ap batch
@@ -15,9 +15,10 @@ mysql env db="signoz_meta":
       spc-us)    host="signoz-meta-prod.xmknh3ooinr6.rds.us-east-1.samsungspc.cloud" ;;
       spc-eu)    host="signoz-meta-prod.zbdch3ooinr6.rds.eu-central-1.samsungspc.cloud" ;;
       aws-apse1) host="signoz-meta.ccssy2wae8ic.ap-southeast-1.rds.amazonaws.com" ;;
+      aws-use1)  host="signoz-meta.c4japxsjvnz6.us-east-1.rds.amazonaws.com" ;;
       aws-use2)  host="signoz-meta.cudecw6mumif.us-east-2.rds.amazonaws.com" ;;
       aws-euw1)  host="signoz-meta.cz4gvfysvog0.eu-west-1.rds.amazonaws.com" ;;
-      *)   echo "알 수 없는 환경: {{env}}  (dev | stg | spc-ap | spc-us | spc-eu | aws-apse1 | aws-use2 | aws-euw1)"; exit 1 ;;
+      *)   echo "알 수 없는 환경: {{env}}  (dev | stg | spc-ap | spc-us | spc-eu | aws-apse1 | aws-use1 | aws-use2 | aws-euw1)"; exit 1 ;;
     esac
 
     # batch DB는 batch 계정 사용, 그 외는 mcm 계정
@@ -32,6 +33,7 @@ mysql env db="signoz_meta":
 # MySQL pod 없을 때 임시 pod 생성 후 signoz_meta 접속
 # 사용 예: just mysql-run       (dev 환경)
 #          just mysql-run aws-apse1
+#          just mysql-run aws-use1
 #          just mysql-run aws-use2
 #          just mysql-run aws-euw1
 [group('MySQL CLI')]
@@ -40,9 +42,10 @@ mysql-run env="dev":
     case "{{env}}" in
       dev)       host="signoz-meta.ca1qbb5llq77.ap-southeast-1.rds.amazonaws.com" ;;
       aws-apse1) host="signoz-meta.ccssy2wae8ic.ap-southeast-1.rds.amazonaws.com" ;;
+      aws-use1)  host="signoz-meta.c4japxsjvnz6.us-east-1.rds.amazonaws.com" ;;
       aws-use2)  host="signoz-meta.cudecw6mumif.us-east-2.rds.amazonaws.com" ;;
       aws-euw1)  host="signoz-meta.cz4gvfysvog0.eu-west-1.rds.amazonaws.com" ;;
-      *)   echo "지원하지 않는 환경: {{env}}  (dev | aws-apse1 | aws-use2 | aws-euw1)"; exit 1 ;;
+      *)   echo "지원하지 않는 환경: {{env}}  (dev | aws-apse1 | aws-use1 | aws-use2 | aws-euw1)"; exit 1 ;;
     esac
     kubectl run --image mysql --env LC_ALL=C.UTF-8 mysql -it -- \
       /bin/bash -c "mysql -h${host} -P13306 signoz_meta -umcm -p${MYSQL_PASSWORD}"
