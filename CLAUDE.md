@@ -55,12 +55,13 @@
 
 | recipe | 설명 |
 |--------|------|
-| `mysql <env> [db]` | MySQL CLI 접속 |
-| `mysql-run` | dev 환경에서 mysql pod 없을 때 임시 pod 생성 후 접속 (dev 전용) |
+| `mysql [db]` | MySQL CLI 접속 (현재 kubectl context 자동 감지) |
+| `mysql-run` | MySQL CLI 접속 (`signoz_meta` + `mcm` 계정 고정, 현재 context 자동 감지) |
 
-- env: `dev` \| `stg` \| `spc-ap` \| `spc-us` \| `spc-eu` \| `aws-apse1` \| `aws-use2` \| `aws-euw1`
 - db: `signoz_meta` (기본값) \| `batch`
-- `db=batch`이면 모든 환경에서 `batch` 계정 사용, 그 외는 `mcm` 계정
+- `db=batch`이면 `batch` 계정 사용, 그 외는 `mcm` 계정
+- context → host 자동 매핑, 접속 전 현재 context 출력
+- deployment/mysql 존재 시 deployment로, 없으면 pod 이름으로 접속
 
 ## 개발 규칙
 
