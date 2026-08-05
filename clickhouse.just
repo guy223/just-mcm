@@ -81,6 +81,7 @@ chi-backup:
       niffler2-prod-euc1-db-cluster)           region="spc-eu" ;;
       aws-niffler2-prod-apse1-db-cluster)      region="aws-apse1" ;;
       aws-niffler2-prod-euw1-db-cluster)       region="aws-euw1" ;;
+      aws-niffler2-prod-use1-db-cluster)       region="aws-use1" ;;
       aws-niffler2-prod-use2-db-cluster)       region="aws-use2" ;;
       *) echo "알 수 없는 context: ${context}"; exit 1 ;;
     esac
