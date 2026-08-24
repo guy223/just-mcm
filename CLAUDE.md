@@ -57,6 +57,7 @@
 |--------|------|
 | `mysql [db]` | MySQL CLI 접속 (현재 kubectl context 자동 감지) |
 | `mysql-run` | MySQL CLI 접속 (`signoz_meta` + `mcm` 계정 고정, 현재 context 자동 감지) |
+| `mysql-query <sql> [db]` | MySQL 쿼리 non-interactive 실행 (`-e` 옵션, 현재 context 자동 감지) |
 
 - db: `signoz_meta` (기본값) \| `batch`
 - `db=batch`이면 `batch` 계정 사용, 그 외는 `mcm` 계정
