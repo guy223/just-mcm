@@ -79,7 +79,6 @@ chi-backup:
       niffler2-prod-apse1-db-cluster)          region="spc-ap" ;;
       niffler2-prod-use1-db-cluster)           region="spc-us" ;;
       niffler2-prod-euc1-db-cluster)           region="spc-eu" ;;
-      aws-niffler2-prod-apse1-db-cluster)      region="aws-apse1" ;;
       aws-niffler2-prod-euw1-db-cluster)       region="aws-euw1" ;;
       aws-niffler2-prod-use1-db-cluster)       region="aws-use1" ;;
       aws-niffler2-prod-use2-db-cluster)       region="aws-use2" ;;

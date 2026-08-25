@@ -41,11 +41,6 @@ spc-eu:
 
 # ── Production - AWS ──────────────────────────────────────────────────────────
 
-# AWS Prod DB 클러스터 (AP-SE1)
-[group('context 전환')]
-aws-apse1:
-    kubectl config use-context aws-niffler2-prod-apse1-db-cluster
-
 # AWS Prod DB 클러스터 (EU-W1)
 [group('context 전환')]
 aws-euw1:

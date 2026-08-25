@@ -70,7 +70,6 @@ j spc-us       # niffler2-prod-use1-db-cluster
 j spc-eu       # niffler2-prod-euc1-db-cluster
 
 # Production - AWS
-j aws-apse1    # aws-niffler2-prod-apse1-db-cluster
 j aws-euw1     # aws-niffler2-prod-euw1-db-cluster
 j aws-use1     # aws-niffler2-prod-use1-db-cluster
 j aws-use2     # aws-niffler2-prod-use2-db-cluster
@@ -97,13 +96,11 @@ j mysql spc-us      # SPC US prod signoz_meta
 j mysql spc-eu      # SPC EU prod signoz_meta
 
 # AWS 환경
-j mysql aws-apse1   # AWS AP-Southeast-1 signoz_meta
 j mysql aws-use2    # AWS US-East-2 signoz_meta
 j mysql aws-euw1    # AWS EU-West-1 signoz_meta
 
 # batch DB (모든 환경 가능, batch 계정 사용)
 j mysql spc-ap batch
-j mysql aws-apse1 batch
 
 # dev 환경에서 mysql pod 없을 때 임시 pod 생성
 j mysql-run
