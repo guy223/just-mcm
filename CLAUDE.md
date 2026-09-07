@@ -60,9 +60,9 @@
 | `mysql-run` | MySQL CLI 접속 (`signoz_meta` + `mcm` 계정 고정, 현재 context 자동 감지) |
 | `mysql-query <sql> [db]` | MySQL 쿼리 non-interactive 실행 (`-e` 옵션, 현재 context 자동 감지) |
 
-- db: `signoz_meta` (기본값) \| `batch` \| `grafana`
+- db: `signoz_meta` (기본값) \| `batch` \| `grafana` — **위치 인자로 전달** (`just mysql grafana`, `db=grafana` 아님), 그 외 값은 실행 전 거부
 - `db=batch`이면 `batch` 계정 사용, 그 외는 `mcm` 계정
-- `db=grafana`이면 `grafana-meta` RDS로 접속 (`aws-cn-dev` / `aws-cn-prod` context 전용, 그 외 context는 에러), 계정은 `niffler2_admin` 고정
+- `db=grafana`이면 `grafana-meta` RDS로 접속 (전 환경 지원, host는 signoz-meta host에서 `signoz-meta`→`grafana-meta` 치환으로 파생), 계정은 `niffler2_admin` 고정, 기본 DB 미지정
 - context → host 자동 매핑, 접속 전 현재 context 출력
 - deployment/mysql 존재 시 deployment로, 없으면 pod 이름으로 접속
 
