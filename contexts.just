@@ -15,6 +15,11 @@ dev:
 sd:
     kubectl config use-context aws-niffler2-dev-apse1-sandbox-cluster
 
+# AWS China Dev DB 클러스터 (CN-W1)
+[group('context 전환')]
+aws-cn-dev:
+    kubectl config use-context aws-niffler2-dev-cnw1-db-cluster
+
 # ── Staging ───────────────────────────────────────────────────────────────────
 
 # Staging DB 클러스터 (AP-SE1)
@@ -55,3 +60,8 @@ aws-use1:
 [group('context 전환')]
 aws-use2:
     kubectl config use-context aws-niffler2-prod-use2-db-cluster
+
+# AWS China Prod DB 클러스터 (CN-NW1)
+[group('context 전환')]
+aws-cn-prod:
+    kubectl config use-context aws-niffler2-prod-cnnw1-db-cluster

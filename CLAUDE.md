@@ -25,6 +25,7 @@
 | current | 현재 context 확인 |
 | dev | aws-niffler2-dev-apse1-db-cluster |
 | sd | aws-niffler2-dev-apse1-sandbox-cluster |
+| aws-cn-dev | aws-niffler2-dev-cnw1-db-cluster |
 | stg | niffler2-stg-apse1-db-cluster |
 | spc-ap | niffler2-prod-apse1-db-cluster |
 | spc-us | niffler2-prod-use1-db-cluster |
@@ -32,6 +33,7 @@
 | aws-euw1 | aws-niffler2-prod-euw1-db-cluster |
 | aws-use1 | aws-niffler2-prod-use1-db-cluster |
 | aws-use2 | aws-niffler2-prod-use2-db-cluster |
+| aws-cn-prod | aws-niffler2-prod-cnnw1-db-cluster |
 
 ### 2. ClickHouse pod exec (`clickhouse.just`)
 
@@ -58,8 +60,9 @@
 | `mysql-run` | MySQL CLI 접속 (`signoz_meta` + `mcm` 계정 고정, 현재 context 자동 감지) |
 | `mysql-query <sql> [db]` | MySQL 쿼리 non-interactive 실행 (`-e` 옵션, 현재 context 자동 감지) |
 
-- db: `signoz_meta` (기본값) \| `batch`
+- db: `signoz_meta` (기본값) \| `batch` \| `grafana`
 - `db=batch`이면 `batch` 계정 사용, 그 외는 `mcm` 계정
+- `db=grafana`이면 `grafana-meta` RDS로 접속 (`aws-cn-dev` / `aws-cn-prod` context 전용, 그 외 context는 에러), 계정은 `niffler2_admin` 고정
 - context → host 자동 매핑, 접속 전 현재 context 출력
 - deployment/mysql 존재 시 deployment로, 없으면 pod 이름으로 접속
 
